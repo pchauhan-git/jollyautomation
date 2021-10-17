@@ -55,10 +55,10 @@ public class HomePageTest extends TestBase {
         homepage1.facebookBtn();
     }
 
-    @Test(priority = 7)
-    public void homePagegoogleBtnPresenceTest(){
-        homepage1.googleBtn();
-    }
+//    @Test(priority = 7)
+//    public void homePagegoogleBtnPresenceTest(){
+//        homepage1.googleBtn();
+//    }
 
 //    @Test(priority = 8)
 //    public void homePagesignupBtnTest(){
