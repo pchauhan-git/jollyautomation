@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/tft/IdeaProjects/SeleniumMavenProject">
+        <classes>
+            <class name="day1.HomePageTest">
+                <methods>
+                    <include name="homePageTitleTest"/>
+                    <include name="homePageloginbtnPresenceTest"/>
+                    <include name="homePagefeatureLinkPresenceTest"/>
+                    <include name="homePagepriceLinkPresenceTest"/>
+                    <include name="homePageblogLinkPresenceTest"/>
+                    <include name="homePagefacebookBtnPresenceTest"/>
+                    <include name="homePagegoogleBtnPresenceTest"/>
+                    <include name="homePagesignupBtnTest"/>
+                    <include name="homePageseeFeaturesBtnTest"/>
+                    <include name="homePageseePricingBtnTest"/>
+                    <include name="homePagepopularConsultantTest"/>
+                    <include name="homePagepopularConsultantLinkTest"/>
+                </methods>
+            </class>
+            <class name="day1.LoginTest">
+                <methods>
+                    <include name="LoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
