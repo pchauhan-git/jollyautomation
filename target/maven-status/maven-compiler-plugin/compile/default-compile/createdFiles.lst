@@ -1,0 +1,13 @@
+base\TestBase.class
+page\PricesPage.class
+page\BlogPage.class
+util\TestUtil.class
+page\SignIn.class
+page\StorePage.class
+day1\LoginTest.class
+page\HomePage.class
+day1\HomePageTest.class
+ExtentReportListener\ExtentReporterNG.class
+page\Features.class
+page\SignUp.class
+day1\SeleniumDemo.class

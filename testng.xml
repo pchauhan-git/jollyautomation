@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="1" preserve-order="true" name="/Users/91989/Downloads/jollyautomation - Copy-20240426T180954Z-001/jollyautomation - Copy">
         <classes>
-            <class name="test.java.day1.HomePageTest">
+            <class name="test.java.day1.LoginLogout">
                 <methods>
                     <include name="homePageTitleTest"/>
                     <include name="homePageloginbtnPresenceTest"/>
@@ -19,7 +19,7 @@
                     <include name="homePagepopularConsultantLinkTest"/>
                 </methods>
             </class>
-            <class name="test.java.day1.HomePageTest">
+            <class name="test.java.day1.LoginLogout">
                 <methods>
                     <include name="LoginTest"/>
                 </methods>
