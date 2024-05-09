@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/tft/IdeaProjects/SeleniumMavenProject">
+    <test verbose="1" preserve-order="true" name="/Users/91989/Downloads/jollyautomation - Copy-20240426T180954Z-001/jollyautomation - Copy">
         <classes>
-            <class name="day1.HomePageTest">
+            <class name="test.java.day1.HomePageTest">
                 <methods>
                     <include name="homePageTitleTest"/>
                     <include name="homePageloginbtnPresenceTest"/>
@@ -19,7 +19,7 @@
                     <include name="homePagepopularConsultantLinkTest"/>
                 </methods>
             </class>
-            <class name="day1.LoginTest">
+            <class name="test.java.day1.HomePageTest">
                 <methods>
                     <include name="LoginTest"/>
                 </methods>

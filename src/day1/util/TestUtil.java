@@ -1,4 +1,4 @@
-package util;
+package day1.util;
 
 public class TestUtil {
 

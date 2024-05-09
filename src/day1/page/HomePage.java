@@ -1,6 +1,6 @@
-package page;
+package day1.page;
 
-import base.TestBase;
+import day1.base.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +17,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//div[@id='__next']/div[2]/div/div/div[2]/button[2]/span")
     WebElement featuresLink;
 
-    @FindBy(xpath = "//a[contains(text(),'Pricing')]")
+    @FindBy(xpath = "//span[contains(.,'Pricing')]")
     WebElement pricingLink;
 
     @FindBy(xpath = "//div/button[@class='MuiButtonBase-root MuiButton-root MuiButton-text jss60'][4]")
@@ -32,7 +32,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//div[@class='MuiGrid-root jss10 jss54 MuiGrid-container MuiGrid-direction-xs-column']//a[1]")
     WebElement fbBtn;
 
-    @FindBy(xpath = "//div[@class='MuiGrid-root jss10 jss54 MuiGrid-container MuiGrid-direction-xs-column']//a[3]")
+    @FindBy(xpath = "//a[contains(@href, '/sign-up')]")
     WebElement signupBtn;
 
     @FindBy(xpath = "//a[@class='MuiButtonBase-root MuiButton-root ReviewsGrid_btn__136pl MuiButton-text']//span[1]")
@@ -41,13 +41,11 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//div[@class='MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-space-around']//a[2]")
     WebElement seePricingBtn;
 
-    @FindBy(xpath = "//span[@class='MuiButton-label']//p[@class='MuiTypography-root jss68 MuiTypography-body1']")
+    @FindBy(xpath = "//*[@id='__next']/div[2]/div[4]/button/span[1]/p")
     WebElement popularConsultantLink;
 
-    @FindBy(xpath = "//div[@class='MuiGrid-root jss77 MuiGrid-item MuiGrid-grid-xs-4']")
+    @FindBy(xpath = "//*[@id='__next']/div[2]/div[4]/div/div[1]/a/p[1]")
     WebElement popularConsultantList;
-
-
 
 
 
@@ -107,13 +105,16 @@ public class HomePage extends TestBase {
 
     }
 
-    public void popularConsultant() {
+    public void popularConsultant() throws InterruptedException{
+        Thread.sleep(500);
         popularConsultantLink.isDisplayed();
         popularConsultantLink.click();
 
     }
 
-    public void popularConsultantList() {
+    public void popularConsultantList() throws InterruptedException {
+    //    popularConsultantLink.click();
+        Thread.sleep(500);
         popularConsultantList.isDisplayed();
 
     }
