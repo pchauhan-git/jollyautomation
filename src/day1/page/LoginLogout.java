@@ -5,15 +5,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class SignIn extends TestBase {
+public class LoginLogout extends TestBase {
 
-    @FindBy(xpath="//input[@id='email']")
+    @FindBy(xpath="//input[@name='username']")
     WebElement username;
 
-    @FindBy(xpath="//input[@id='password']")
+    @FindBy(xpath="//input[@name='password']")
     WebElement password;
 
-    @FindBy(xpath="//span[contains(.,'Log in')]")
+    @FindBy(xpath="//div[@class='display-flex justify-space-between']//button[@type='button'][1]")
     WebElement LoginBtn;
 
     @FindBy(xpath="//*[@id='__next']/div[2]/div/div/p[2]")
@@ -21,7 +21,7 @@ public class SignIn extends TestBase {
 
 
     //Initializing the page objects here
-    public SignIn() {
+    public LoginLogout() {
         PageFactory.initElements(driver, this);
     }
 
@@ -29,12 +29,12 @@ public class SignIn extends TestBase {
         return driver.getTitle();
     }
 
-//    public StorePage login(String un, String pwd) {
-//        username.sendKeys(un);
-//        password.sendKeys(pwd);
-//        LoginBtn.click();
-//        return new StorePage();
-//    }
+    public void login(String un, String pwd) {
+        username.sendKeys(un);
+        password.sendKeys(pwd);
+        LoginBtn.click();
+      //  return new StorePage();
+    }
 
 //    public StorePage invalidlogin(String un, String pwd) {
 //        username.sendKeys(un);
