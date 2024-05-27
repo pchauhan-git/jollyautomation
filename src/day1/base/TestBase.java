@@ -29,7 +29,7 @@ public class TestBase {
 
     }
 
-    public static void initialization(){
+    public WebDriver initialization(){
 
        String browserName= prop.getProperty("browser");
        if(browserName.equals("chrome")){
@@ -39,11 +39,11 @@ public class TestBase {
            System.setProperty("webdriver.gecko.driver", "/Users/tft/Downloads/geckodriver");
            driver = new FirefoxDriver();
        }
-
         driver.manage().window().maximize();
        driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
        driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
        driver.get(prop.getProperty("url"));
+       return driver;
     }
 }
 

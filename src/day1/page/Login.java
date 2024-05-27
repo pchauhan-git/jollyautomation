@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class LoginLogout extends TestBase {
+public class Login extends TestBase {
 
     @FindBy(xpath="//input[@name='username']")
     WebElement username;
@@ -21,7 +21,7 @@ public class LoginLogout extends TestBase {
 
 
     //Initializing the page objects here
-    public LoginLogout() {
+    public Login() {
         PageFactory.initElements(driver, this);
     }
 
@@ -29,11 +29,11 @@ public class LoginLogout extends TestBase {
         return driver.getTitle();
     }
 
-    public void login(String un, String pwd) {
+    public HomePage login(String un, String pwd) {
         username.sendKeys(un);
         password.sendKeys(pwd);
         LoginBtn.click();
-      //  return new StorePage();
+        return PageFactory.initElements(driver, HomePage.class);
     }
 
 //    public StorePage invalidlogin(String un, String pwd) {
