@@ -13,7 +13,7 @@ public class Login extends TestBase {
     @FindBy(xpath="//input[@name='password']")
     WebElement password;
 
-    @FindBy(xpath="//div[@class='display-flex justify-space-between']//button[@type='button'][1]")
+    @FindBy(xpath="//button/span[text()='Login']")
     WebElement LoginBtn;
 
     @FindBy(xpath="//*[@id='__next']/div[2]/div/div/p[2]")

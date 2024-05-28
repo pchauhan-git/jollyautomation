@@ -12,7 +12,7 @@ public class HomePage extends TestBase {
     //Define Page Factory or Object Repo
 
 
-    @FindBy(xpath = "//div[@class='additional-menu']//div[3]//div")
+    @FindBy(xpath = "//div[text()='Logout']")
     WebElement logOutBtn;
 
     @FindBy(xpath = "//div[@id='__next']/div[2]/div/div/div[2]/button[2]/span")
@@ -27,8 +27,17 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//input[@name='password']")
     WebElement password;
 
+    @FindBy(xpath="//input[@id='username']")
+    WebElement usernameBank;
+
+    @FindBy(xpath="//input[@id='password']")
+    WebElement passwordBank;
+
     @FindBy(xpath="//div[@class='display-flex justify-space-between']//button[@type='button'][1]")
     WebElement LoginBtn;
+
+    @FindBy(xpath="//button[@id='btnSubmit']")
+    WebElement LoginBtnPayment;
 
     @FindBy(xpath="//span[text()='Connections']")
     WebElement connectionsDropdown;
@@ -138,7 +147,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//a[text()='Connections']")
     WebElement connectionsLeftNav;
 
-    @FindBy(xpath="(//div[@class=\"action-icon\"]//span)[1]")
+    @FindBy(xpath="//tbody//td/div[contains(text(),'Mr. Aditya Raghuwanshi')]/ancestor::tr//div[@class=\"action-icon\"]//span")
     WebElement topListConnectionEdit;
 
     @FindBy(xpath="(//div[contains(.,'MR01')]/following-sibling::div[@class='icon-container'])[1]")
@@ -158,7 +167,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//label[@class='upload-btn']/input")
     WebElement siteImageInput;
 
-    @FindBy(xpath="//div[text()='MRU ID (MRUID)']/following-sibling::div//input")
+    @FindBy(xpath="//div[@name='mruId']")
     WebElement mruId;
 
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='M0150AA']")
@@ -194,6 +203,75 @@ public class HomePage extends TestBase {
     WebElement serviceOrderNumber;
     @FindBy(xpath="//button/span[text()='Okay']")
     WebElement okayButton;
+
+    @FindBy(xpath="//button/span[text()='Ok']")
+    WebElement okButton;
+
+    @FindBy(xpath="//tbody//td[contains(text(),'Mr Aditya  Raghuwanshi')]/ancestor::tr//div[@class='table-actions']/div[2]/button/span")
+    WebElement payEditIcon;
+
+    @FindBy(xpath="//button/span[text()='Pay']")
+    WebElement payButton;
+
+    @FindBy(xpath="(//div[@class='form-section ']//img)[2]")
+    WebElement billDeskOption;
+
+    @FindBy(xpath="(//button/span[text()='Pay'])[2]")
+    WebElement payButtonOnDialog;
+
+    @FindBy(xpath="//input[@id='new-card']")
+    WebElement creditCardOption;
+
+    @FindBy(xpath="//input[@id='cardNumber']")
+    WebElement cardNumber;
+    //1111222233334444123
+    @FindBy(xpath="//input[@id='cardHolderName']")
+    WebElement cardHolderName;
+
+    @FindBy(xpath="//input[@id='selMonth']")
+    WebElement selMonth;
+    @FindBy(xpath="//input[@id='selYear']")
+    WebElement selYear;
+    @FindBy(xpath="//input[@id='cvvNumber']")
+    WebElement cvvNumber;
+
+    @FindBy(xpath="//input[@id='net-banking']")
+    WebElement netBankingOption;
+    @FindBy(xpath="//button[@id='b2bOnboardingSubmitButton']")
+    WebElement payNowButton;
+    @FindBy(xpath="//button[@id='btnSubmit']")
+    WebElement loginButtonBank;
+
+
+    @FindBy(xpath="//input[@value='Confirm']")
+    WebElement confirmPayment;
+
+/*
+    newMeterSerialNumber
+            newMeterSealNumber
+    newMeterInstallationNumber
+            mainPipeNumber
+    div name=meterDiameterInMM is a dropdown
+option //div[@class='rc-virtual-list']//div[text()='15 mm']
+    meterBrandName is a dropdown
+    option //div[@class='rc-virtual-list']//div[text()='Itron']
+            initialMeterReading
+    noOfDials
+            meterOwner is a getDropdown
+            option //div[@class='rc-virtual-list']//div[text()='NMC_ON']
+    //span[text()='Private']
+                    relationshipWithCustomer is a dropdown
+    option //div[@class='rc-virtual-list']//div[text()='Mother']
+            contractorName
+
+    //div[contains(.,'HSC Form')]/label//span
+    //div[contains(.,'Meter Image')]/label//span
+    //div[contains(.,'Meter Assembly Photo')]/label//span
+    submit
+    yes
+            */
+
+
 
 
 
@@ -286,7 +364,8 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
-            nextButton.click();
+              nextButton.click();
+            TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
             TestUtil.waitForFiveSeconds();
@@ -295,10 +374,12 @@ public class HomePage extends TestBase {
             try {
                 new Actions(driver).moveToElement(nextButton).perform();
                 nextButton.click();
+                TestUtil.waitForFiveSeconds();
             } catch(Exception e) {
 
             }
             previewButton.click();
+            TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(submitButton).perform();
             submitButton.click();
             TestUtil.waitForTwoSeconds();
@@ -326,15 +407,20 @@ public class HomePage extends TestBase {
             nearbyContractAccountNumber.sendKeys("12345667");
             anyOtherConnectionFound.click();
             alternateWaterSources.click();
-            siteImageInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
-            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            new Actions(driver).moveToElement(submitButton).perform();
+            TestUtil.waitForTwoSeconds();
             mruId.click();
             TestUtil.waitForOneSeconds();
             optionInMruId.click();
+            siteImageInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(submitButton).perform();
             submitButton.click();
             TestUtil.waitForTwoSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("tl01")) {
@@ -342,10 +428,12 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(submitButton).perform();
             submitButton.click();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("spm")) {
@@ -363,7 +451,7 @@ public class HomePage extends TestBase {
                 nextButton.click();
                 TestUtil.waitForFiveSeconds();
             } catch(Exception e) {}
-
+            TestUtil.waitForFiveSeconds();
             previewButton.click();
             TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(submitButton).perform();
@@ -386,10 +474,12 @@ public class HomePage extends TestBase {
             lengthOfMdpePipe.sendKeys("5");
             waterFlowQuantity.sendKeys("20");
             durationOfWaterSupplyInHours.sendKeys("2");
+            new Actions(driver).moveToElement(submitButton).perform();
             submitButton.click();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("zm")) {
@@ -411,6 +501,7 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("dl")) {
@@ -424,8 +515,10 @@ public class HomePage extends TestBase {
             nextButton.click();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
+            TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
+            TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(previewButton).perform();
             previewButton.click();
             TestUtil.waitForFiveSeconds();
@@ -433,6 +526,31 @@ public class HomePage extends TestBase {
             approveButton.click();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        } else if(approver.equalsIgnoreCase("aditya")) {
+            connectionsDropdown.click();
+            TestUtil.waitForTwoSeconds();
+            newConnectionOptionInDropdown.click();
+            TestUtil.waitForFiveSeconds();
+            payEditIcon.click();
+            TestUtil.waitForFiveSeconds();
+            payButton.click();
+            TestUtil.waitForFiveSeconds();
+            payButtonOnDialog.click();
+            TestUtil.waitForFiveSeconds();
+            netBankingOption.click();
+            payNowButton.click();
+            TestUtil.waitForFiveSeconds();
+            usernameBank.sendKeys("aditya");
+            passwordBank.sendKeys("1234");
+            loginButtonBank.click();
+            TestUtil.waitForFiveSeconds();
+            confirmPayment.click();
+            TestUtil.waitForFiveSeconds();
+            okButton.click();
             TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
