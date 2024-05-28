@@ -7,6 +7,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+import java.util.Set;
+
 public class HomePage extends TestBase {
 
     //Define Page Factory or Object Repo
@@ -173,7 +176,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='M0150AA']")
     WebElement optionInMruId;
 
-    @FindBy(xpath="//div[text()='Material of main pipe']/following-sibling::div//input")
+    @FindBy(xpath="//div[@name='materialOfMainPipe']")
     WebElement materialOfMainPipeline;
 
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='CI']")
@@ -207,11 +210,15 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//button/span[text()='Ok']")
     WebElement okButton;
 
-    @FindBy(xpath="//tbody//td[contains(text(),'Mr Aditya  Raghuwanshi')]/ancestor::tr//div[@class='table-actions']/div[2]/button/span")
+    @FindBy(xpath="//tbody//div[contains(text(),'Mr. Aditya Raghuwanshi')]/ancestor::tr//td//div[@class='table-actions']/div[2]/span")
     WebElement payEditIcon;
-
+    @FindBy(xpath="//div[text()='Payment method']/following-sibling::div//img[contains(@src,'PhonePe')]")
+    WebElement phonePayOption;
     @FindBy(xpath="//button/span[text()='Pay']")
     WebElement payButton;
+
+    @FindBy(xpath="//button/span[text()='Pay']")
+    List<WebElement> payButtonList;
 
     @FindBy(xpath="(//div[@class='form-section ']//img)[2]")
     WebElement billDeskOption;
@@ -235,41 +242,72 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//input[@id='cvvNumber']")
     WebElement cvvNumber;
 
+    @FindBy(xpath="//input[@id='new-vpa']")
+    WebElement upi_id;
+
     @FindBy(xpath="//input[@id='net-banking']")
     WebElement netBankingOption;
     @FindBy(xpath="//button[@id='b2bOnboardingSubmitButton']")
     WebElement payNowButton;
     @FindBy(xpath="//button[@id='btnSubmit']")
     WebElement loginButtonBank;
-
-
     @FindBy(xpath="//input[@value='Confirm']")
     WebElement confirmPayment;
+    @FindBy(xpath="//input[@name='newMeterSerialNumber']")
+    WebElement newMeterSerialNumber;
+    @FindBy(xpath="//input[@name='newMeterSealNumber']")
+    WebElement newMeterSealNumber;
+    @FindBy(xpath="//input[@name='newMeterInstallationNumber']")
+    WebElement newMeterInstallationNumber;
+    @FindBy(xpath="//input[@name='mainPipeNumber']")
+    WebElement mainPipeNumber;
+    @FindBy(xpath="//div[@name='meterDiameterInMM']")
+    WebElement meterDiameterInMMDropdown;
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='15 mm']")
+    WebElement meterDiameterInMMDropdownOption;
+    @FindBy(xpath="//div[@name='meterBrandName']")
+    WebElement meterBrandNameDropdown;
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='Itron']")
+    WebElement meterBrandNameDropdownOption;
+    @FindBy(xpath="//input[@name='initialMeterReading']")
+    WebElement initialMeterReading;
+    @FindBy(xpath="//input[@name='noOfDials']")
+    WebElement noOfDials;
+    @FindBy(xpath="//div[@name='meterOwner']")
+    WebElement meterOwnerDropdown;
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='NMC_ON']")
+    WebElement meterOwnerDropdownOption;
+    @FindBy(xpath="//span[text()='Private']")
+    WebElement privateOptionInRadio;
+    @FindBy(xpath="//div[@name='relationshipWithCustomer']")
+    WebElement relationshipWithCustomerDropdown;
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='Mother']")
+    WebElement relationshipWithCustomerDropdownOption;
+    @FindBy(xpath="//input[@name='contractorName']")
+    WebElement contractorName;
 
-/*
-    newMeterSerialNumber
-            newMeterSealNumber
-    newMeterInstallationNumber
-            mainPipeNumber
-    div name=meterDiameterInMM is a dropdown
-option //div[@class='rc-virtual-list']//div[text()='15 mm']
-    meterBrandName is a dropdown
-    option //div[@class='rc-virtual-list']//div[text()='Itron']
-            initialMeterReading
-    noOfDials
-            meterOwner is a getDropdown
-            option //div[@class='rc-virtual-list']//div[text()='NMC_ON']
-    //span[text()='Private']
-                    relationshipWithCustomer is a dropdown
-    option //div[@class='rc-virtual-list']//div[text()='Mother']
-            contractorName
+    @FindBy(xpath="//div[contains(.,'HSC Form')]/label//input")
+    WebElement hscForm;
 
-    //div[contains(.,'HSC Form')]/label//span
-    //div[contains(.,'Meter Image')]/label//span
-    //div[contains(.,'Meter Assembly Photo')]/label//span
-    submit
-    yes
-            */
+    @FindBy(xpath="//div[contains(.,'Meter Image')]/label//input")
+    WebElement meterImage;
+    @FindBy(xpath="//div[contains(.,'Meter Assembly Photo')]/label//input")
+    WebElement meterAssemblyPhoto;
+
+    @FindBy(xpath="//input[@value='email']")
+    WebElement emailCheckbox;
+
+    @FindBy(xpath="//input[@value='sms']")
+    WebElement smsCheckbox;
+
+    @FindBy(xpath="//input[@value='physicalBill']")
+    WebElement physicalBillCheckbox;
+
+
+
+
+
+
 
 
 
@@ -341,6 +379,9 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
         submitButton.click();
         TestUtil.waitForFiveSeconds();
         confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
     }
     public boolean featureLink() {
         return featuresLink.isDisplayed();
@@ -364,17 +405,28 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
-              nextButton.click();
+            new Actions(driver).moveToElement(nextButton).perform();
+            nextButton.click();
             TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
             TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
             TestUtil.waitForTwoSeconds();
             try {
                 new Actions(driver).moveToElement(nextButton).perform();
                 nextButton.click();
                 TestUtil.waitForFiveSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+                emailCheckbox.click();
+                smsCheckbox.click();
+                physicalBillCheckbox.click();
             } catch(Exception e) {
 
             }
@@ -385,6 +437,7 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForTwoSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("tl")) {
@@ -392,7 +445,9 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
             meterReader01assign.click();
+            TestUtil.waitForFiveSeconds();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
@@ -414,6 +469,7 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForOneSeconds();
             optionInMruId.click();
             siteImageInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();
             TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(submitButton).perform();
             submitButton.click();
@@ -441,13 +497,22 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
             TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
             TestUtil.waitForFiveSeconds();
             try {
+                new Actions(driver).moveToElement(nextButton).perform();
                 nextButton.click();
                 TestUtil.waitForFiveSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
                 nextButton.click();
                 TestUtil.waitForFiveSeconds();
             } catch(Exception e) {}
@@ -466,6 +531,7 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(materialOfMainPipeline).perform();
             materialOfMainPipeline.click();
             TestUtil.waitForOneSeconds();
             optionMaterialOfMainPipeline.click();
@@ -493,6 +559,14 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             nextButton.click();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
+            try {
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForTwoSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+            } catch(Exception e) {   }
             new Actions(driver).moveToElement(previewButton).perform();
             previewButton.click();
             TestUtil.waitForFiveSeconds();
@@ -501,7 +575,7 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
-            TestUtil.waitForTwoSeconds();
+            TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("dl")) {
@@ -539,19 +613,82 @@ option //div[@class='rc-virtual-list']//div[text()='15 mm']
             TestUtil.waitForFiveSeconds();
             payButton.click();
             TestUtil.waitForFiveSeconds();
+            phonePayOption.click();
+            TestUtil.waitForFiveSeconds();
+            payButton.click();
+            TestUtil.waitForFiveSeconds();
             payButtonOnDialog.click();
             TestUtil.waitForFiveSeconds();
-            netBankingOption.click();
-            payNowButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            driver.switchTo().frame(0);
+            TestUtil.waitForTwoSeconds();
+            upi_id.click();
+            new Actions(driver).moveToElement(netBankingOption).perform();
+            netBankingOption.click();
+            String main_window = driver.getWindowHandle();
+            payNowButton.click();
+            driver.switchTo().defaultContent();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            Set<String> window_ids = driver.getWindowHandles();
+            window_ids.remove(main_window);
+            driver.switchTo().window(window_ids.iterator().next());
             usernameBank.sendKeys("aditya");
             passwordBank.sendKeys("1234");
             loginButtonBank.click();
             TestUtil.waitForFiveSeconds();
             confirmPayment.click();
             TestUtil.waitForFiveSeconds();
+            driver.switchTo().window(main_window);
+            TestUtil.waitForFiveSeconds();
             okButton.click();
             TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        } else if(approver.equalsIgnoreCase("ne01")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(newMeterSerialNumber).perform();
+            newMeterSerialNumber.sendKeys("1234322");
+            newMeterSealNumber.sendKeys("12343");
+            newMeterInstallationNumber.sendKeys("453554");
+            mainPipeNumber.sendKeys("3434");
+            meterDiameterInMMDropdown.click();
+            TestUtil.waitForOneSeconds();
+            meterDiameterInMMDropdownOption.click();
+            TestUtil.waitForTwoSeconds();
+            meterBrandNameDropdown.click();
+            TestUtil.waitForOneSeconds();
+            meterBrandNameDropdownOption.click();
+            initialMeterReading.sendKeys("343");
+            noOfDials.sendKeys("3");
+            meterOwnerDropdown.click();
+            TestUtil.waitForOneSeconds();
+            meterOwnerDropdownOption.click();
+            privateOptionInRadio.click();
+            new Actions(driver).moveToElement(relationshipWithCustomerDropdown).perform();
+            relationshipWithCustomerDropdown.click();
+            TestUtil.waitForOneSeconds();
+            relationshipWithCustomerDropdownOption.click();
+            contractorName.sendKeys("aadi");
+            hscForm.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            meterImage.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            meterAssemblyPhoto.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();;
+            TestUtil.waitForTwoSeconds();
+            submitButton.click();
+            TestUtil.waitForFiveSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         }

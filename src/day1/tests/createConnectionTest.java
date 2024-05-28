@@ -18,11 +18,11 @@ public class createConnectionTest {
     public void createConnection() throws InterruptedException {
         driver = new TestBase().initialization();
         loginPg = PageFactory.initElements(driver, Login.class);
-        driver.get(TestBase.prop.getProperty("url"));
+       driver.get(TestBase.prop.getProperty("url"));
         homePage = loginPg.login("adityaraghuwanshi@saltoris.com","Aditya@123");
         Assert.assertTrue(homePage.verifyHomePageLoaded());
         homePage.createNewConnection();
-        driver.get(TestBase.prop.getProperty("admin_url"));
+       driver.get(TestBase.prop.getProperty("admin_url"));
         homePage = loginPg.login("cso01@veolia.com","Cso@123");
         homePage.approveConnection("CSO");
         homePage = loginPg.login("tl01@veolia.com","Tl@123");
@@ -46,10 +46,16 @@ public class createConnectionTest {
         driver.get(TestBase.prop.getProperty("url"));
         homePage = loginPg.login("adityaraghuwanshi@saltoris.com","Aditya@123");
         homePage.approveConnection("aditya");
+        homePage = loginPg.login("adityaraghuwanshi@saltoris.com","Aditya@123");
+        homePage.approveConnection("aditya");
         driver.get(TestBase.prop.getProperty("admin_url"));
-         homePage = loginPg.login("ne01@veolia.com","Ne@123");
-         homePage.approveConnection("NE");
-
-
+        homePage = loginPg.login("ne01@veolia.com","Ne@123");
+         homePage.approveConnection("NE01");
+        homePage = loginPg.login("zm01@veolia.com","Zm@123");
+        homePage.approveConnection("ZM");
+        homePage = loginPg.login("cso01@veolia.com","Cso@123");
+        homePage.approveConnection("CSO");
+        homePage = loginPg.login("spm01@veolia.com","Spm@123");
+        homePage.approveConnection("SPM");
     }
 }
