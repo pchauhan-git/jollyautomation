@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="1" preserve-order="true" name="/Users/91989/Downloads/jollyautomation - Copy-20240426T180954Z-001/jollyautomation - Copy">
         <classes>
-            <class name="day1.tests.createConnectionTest">
+            <class name="day1.tests.RI_Individual_Connection">
             </class>
         </classes>
     </test>

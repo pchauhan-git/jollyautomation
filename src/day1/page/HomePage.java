@@ -13,6 +13,14 @@ import java.util.Set;
 public class HomePage extends TestBase {
 
     //Define Page Factory or Object Repo
+    @FindBy(xpath="//input[@value='institutional']")
+    WebElement InstitutionalBtn;
+
+    @FindBy(xpath="//input[@value='IA']")
+    WebElement Institutional1ABtn;
+
+    @FindBy(xpath="//input[@value='SLUM']")
+    WebElement slumBtn;
 
 
     @FindBy(xpath = "//div[text()='Logout']")
@@ -61,7 +69,7 @@ public class HomePage extends TestBase {
     WebElement previewButton;
 
 
-    @FindBy(xpath="//button/span[text()='OK']")
+    @FindBy(xpath="//div[@class='ant-modal-content']//div[2]//button[2]")
     WebElement newConnectionInstructionOKButton;
 
     @FindBy(xpath="//input[@value='residential']")
@@ -72,6 +80,22 @@ public class HomePage extends TestBase {
 
     @FindBy(xpath="//input[@value='individual']")
     WebElement individualRadioButton;
+
+
+    @FindBy(xpath="//div[@class='form-section form-section-bordered']//label[1]//span[1]//input")
+    WebElement hutR1Btn;
+
+    @FindBy(xpath="//div[@class='main-container']//div[4]//div[2]//div[1]//label[1]//input")
+    WebElement slumCertificate;
+
+    @FindBy(xpath="//div[5]//div[2]//div[1]//label[1]//input")
+    WebElement kabjaCertificate;
+
+    @FindBy(xpath="//div[7]//div[2]//div[1]//label[1]//input")
+    WebElement addressProofcertificate;
+
+
+
 
     @FindBy(xpath="//button/span[text()='Next']")
     WebElement nextButton;
@@ -100,14 +124,26 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//input[@name='houseNumber']")
     WebElement houseNumber;
 
+    @FindBy(xpath="//body/div[@id='root']/div[@class='App']/div[@class='main-container']/div[@id='personalDetailsForm']/div/div[5]/div[2]/div[1]/div[1]/input[1]")
+    WebElement houseNumber2;
+
     @FindBy(xpath="//input[@name='plotNumber']")
     WebElement plotNumber;
 
     @FindBy(xpath="//div[text()='Pincode']/following-sibling::div//input")
     WebElement pincodeDropdown;
 
+    @FindBy(xpath="//div[5]//div[2]//div[4]//div[1]//div[2]//div[1]//span[2]")
+    WebElement pincodeDropdown2;
+
+
+
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='440021']")
     WebElement pincodeOption;
+
+    @FindBy(xpath="//div[@class='form-section form-section-bordered'][2]//div[2]//label//span//input")
+    WebElement sameAddresschk;
+
 
     @FindBy(xpath="//input[@name='layout']")
     WebElement layout;
@@ -126,6 +162,10 @@ public class HomePage extends TestBase {
 
     @FindBy(xpath="//div[.='Registry / Sale Deed']/following-sibling::div//input")
     WebElement registrySaleDeedInput;
+
+    @FindBy(xpath="//div[.='Registry/ Sale Deed']/following-sibling::div//input")
+    WebElement registrySaleDeedInput2;
+
 
     @FindBy(xpath="//div[.='Photo (Passport Size)']/following-sibling::div//input")
     WebElement photoInput;
@@ -150,10 +190,10 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//a[text()='Connections']")
     WebElement connectionsLeftNav;
 
-    @FindBy(xpath="//tbody//td/div[contains(text(),'Mr. Aditya Raghuwanshi')]/ancestor::tr//div[@class=\"action-icon\"]//span")
+    @FindBy(xpath="//tbody/tr[1]/td[8]/div[1]/div[1]/span[1]//*[name()='svg']")
     WebElement topListConnectionEdit;
 
-    @FindBy(xpath="(//div[contains(.,'MR01')]/following-sibling::div[@class='icon-container'])[1]")
+    @FindBy(xpath="//div[@class='width-25']//div[2]//div[2]//div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M16.5637 7')]")
     WebElement meterReader01assign;
 
     @FindBy(xpath="//input[@name='totalFamilyMembers/dwellingUnits']")
@@ -210,7 +250,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//button/span[text()='Ok']")
     WebElement okButton;
 
-    @FindBy(xpath="//tbody//div[contains(text(),'Mr. Aditya Raghuwanshi')]/ancestor::tr//td//div[@class='table-actions']/div[2]/span")
+    @FindBy(xpath="//div[@class='table-actions']/div[2]/span")
     WebElement payEditIcon;
     @FindBy(xpath="//div[text()='Payment method']/following-sibling::div//img[contains(@src,'PhonePe')]")
     WebElement phonePayOption;
@@ -303,11 +343,45 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//input[@value='physicalBill']")
     WebElement physicalBillCheckbox;
 
+    @FindBy(xpath="//div[@class='ant-radio-group ant-radio-group-outline css-6j9yrn']//label[2]//span")
+    WebElement CommercialBtn;
 
 
+    @FindBy(xpath="//div[@class='form-section form-section-bordered']//label[1]//span")
+    WebElement radioBtn1;
+
+    @FindBy(xpath="//div[@class='form-section form-section-bordered']//label[2]//span")
+    WebElement radioBtn2;
 
 
+    @FindBy(xpath="//input[@name='companyName']")
+    WebElement ConnectionNameField;
 
+    @FindBy(xpath="//input[@value='residential']")
+    WebElement connectionType;
+
+    @FindBy(xpath="//span[@aria-label='check']//*[name()='svg']")
+    WebElement connectionTypeLnk;
+
+
+    @FindBy(xpath="//div[@class='ant-modal-confirm-btns']//button[2]")
+    WebElement yesBtn;
+
+    @FindBy(xpath="//input[@name='contactNumber']")
+    WebElement contactNumber;
+
+    @FindBy(xpath="//input[@name='contactEmail']")
+    WebElement contactEmail;
+
+    @FindBy(xpath="//div[.='Gumasta License/ Licenses for Running Business']/following-sibling::div//input")
+    WebElement gustamaLicence;
+
+    @FindBy(xpath="//div[.='Sanctioned Building Plan (For Multi-storey Building only)']/following-sibling::div//input")
+    WebElement buildingPlan;
+
+
+    @FindBy(xpath="//button[@id='action-btn']")
+    WebElement proceedBtn;
 
 
 
@@ -326,12 +400,17 @@ public class HomePage extends TestBase {
     public void createNewConnection() throws InterruptedException {
         connectionsDropdown.click();
         newConnectionOptionInDropdown.click();
+       // TestUtil.waitUntilClickable();
         TestUtil.waitForFiveSeconds();
-        TestUtil.waitUntilClickable(driver,applyForNewConnectionButton);
         applyForNewConnectionButton.click();
         TestUtil.waitForTwoSeconds();
-        newConnectionInstructionOKButton.click();
+
+      newConnectionInstructionOKButton.click();
+        TestUtil.waitForTwoSeconds();
+        connectionType.click();
+        TestUtil.waitForTwoSeconds();
         residentialRadioButton.click();
+        TestUtil.waitForTwoSeconds();
         r1RadioButton.click();
         individualRadioButton.click();
         nextButton.click();
@@ -340,7 +419,7 @@ public class HomePage extends TestBase {
         TestUtil.waitForOneSeconds();
         mrOptionInTitleDropdown.click();
         firstName.sendKeys("Aditya");
-        lastName.sendKeys("Raghuwanshi");
+        lastName.sendKeys("Raghuwanshi+Automation");
         fatherName.sendKeys("raghuwanshi");
         electricBillNumber.sendKeys("123456");
         houseNumber.sendKeys("23, Mercer Street");
@@ -383,28 +462,268 @@ public class HomePage extends TestBase {
         TestUtil.waitForFiveSeconds();
         logOutBtn.click();
     }
-    public boolean featureLink() {
-        return featuresLink.isDisplayed();
+
+    public void createNewConnectionR1SlumHut() throws InterruptedException {
+        connectionsDropdown.click();
+        newConnectionOptionInDropdown.click();
+        // TestUtil.waitUntilClickable();
+        TestUtil.waitForFiveSeconds();
+        applyForNewConnectionButton.click();
+        TestUtil.waitForTwoSeconds();
+
+       newConnectionInstructionOKButton.click();
+        TestUtil.waitForTwoSeconds();
+//        connectionTypeLnk.click();
+//        TestUtil.waitForTwoSeconds();
+        residentialRadioButton.click();
+        TestUtil.waitForTwoSeconds();
+      //  confirmationYesButton.click();
+        TestUtil.waitForTwoSeconds();
+        TestUtil.waitForTwoSeconds();
+        slumBtn.click();
+        TestUtil.waitForTwoSeconds();
+        TestUtil.waitForFiveSeconds();
+        hutR1Btn.click();
+        TestUtil.waitForOneSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        titleDropdown.click();
+        TestUtil.waitForOneSeconds();
+        mrOptionInTitleDropdown.click();
+        firstName.sendKeys("Aditya");
+        lastName.sendKeys("Raghuwanshi+Automation");
+        fatherName.sendKeys("raghuwanshi");
+        electricBillNumber.sendKeys("123456");
+        houseNumber.sendKeys("23, Mercer Street");
+        plotNumber.sendKeys("30");
+        pincodeDropdown.click();
+        TestUtil.waitForOneSeconds();
+        pincodeOption.click();
+        layout.sendKeys("abc");
+        area.sendKeys("xyz");
+        zoneDropdown.click();
+        TestUtil.waitForOneSeconds();
+        zoneOption.click();
+        nextButton.click();
+
+        TestUtil.waitForFiveSeconds();
+        taxReceiptInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        registrySaleDeedInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        slumCertificate.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        kabjaCertificate.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        addressProofcertificate.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        photoInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        electricityBill.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        waterSupplyAgreement.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        consentCheckbox.click();
+        signatureUploadButton.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        previewButton.click();
+        TestUtil.waitForFiveSeconds();
+        new Actions(driver).moveToElement(submitButton).perform();
+        submitButton.click();
+        TestUtil.waitForFiveSeconds();
+        confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
+    }
+    public void createNewConnectionC1A() throws InterruptedException {
+        connectionsDropdown.click();
+        newConnectionOptionInDropdown.click();
+        // TestUtil.waitUntilClickable();
+        TestUtil.waitForFiveSeconds();
+        applyForNewConnectionButton.click();
+        TestUtil.waitForFiveSeconds();
+      //  newConnectionInstructionOKButton.click();
+//        TestUtil.waitForTwoSeconds();
+        connectionType.click();
+        TestUtil.waitForTwoSeconds();
+
+      //  TestUtil.waitForTwoSeconds();
+        CommercialBtn.click();
+        TestUtil.waitForTwoSeconds();
+    //    yesBtn.click();
+//        TestUtil.waitForTwoSeconds();
+         radioBtn1.click();
+        TestUtil.waitForTwoSeconds();
+        TestUtil.waitForTwoSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        ConnectionNameField.sendKeys("Aditya");
+        titleDropdown.click();
+        TestUtil.waitForOneSeconds();
+        mrOptionInTitleDropdown.click();
+        firstName.sendKeys("Aditya");
+        lastName.sendKeys("Raghuwanshi+Automation");
+        contactNumber.sendKeys("987654321");
+        contactEmail.sendKeys("test+automation@saltoris.com");
+        electricBillNumber.sendKeys("123456");
+        houseNumber2.sendKeys("23, Mercer Street");
+        plotNumber.sendKeys("30");
+        TestUtil.waitForTwoSeconds();
+        pincodeDropdown2.click();
+        TestUtil.waitForOneSeconds();
+        pincodeOption.click();
+        layout.sendKeys("abc");
+        area.sendKeys("xyz");
+        TestUtil.waitForOneSeconds();
+        sameAddresschk.click();
+        TestUtil.waitForOneSeconds();
+        zoneDropdown.click();
+        TestUtil.waitForOneSeconds();
+        zoneOption.click();
+        nextButton.click();
+
+        TestUtil.waitForFiveSeconds();
+        taxReceiptInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+     registrySaleDeedInput2.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+         gustamaLicence.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+       TestUtil.waitForFiveSeconds();
+     buildingPlan.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+       TestUtil.waitForFiveSeconds();
+
+        photoInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+       // photoIdInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        electricityBill.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        waterSupplyAgreement.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        consentCheckbox.click();
+        signatureUploadButton.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        previewButton.click();
+        TestUtil.waitForFiveSeconds();
+        new Actions(driver).moveToElement(submitButton).perform();
+        submitButton.click();
+        TestUtil.waitForFiveSeconds();
+        confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
     }
 
-    public void loginLogout(String un, String pwd) throws InterruptedException {
-        username.sendKeys(un);
-        Thread.sleep(5000);
-        password.sendKeys(pwd);
-        LoginBtn.click();
+
+    public void createNewConnectionIA() throws InterruptedException {
+        connectionsDropdown.click();
+        newConnectionOptionInDropdown.click();
+        // TestUtil.waitUntilClickable();
+        TestUtil.waitForFiveSeconds();
+        applyForNewConnectionButton.click();
+      //  TestUtil.waitForFiveSeconds();
+        //connectionTypeLnk.click();
+//        TestUtil.waitForTwoSeconds();
+        TestUtil.waitForFiveSeconds();
+        newConnectionInstructionOKButton.click();
+
+        TestUtil.waitForTwoSeconds();
+        TestUtil.waitForTwoSeconds();
+        InstitutionalBtn.click();
+        TestUtil.waitForTwoSeconds();
+        //    yesBtn.click();
+//        TestUtil.waitForTwoSeconds();
+        radioBtn1.click();
+        TestUtil.waitForTwoSeconds();
+        TestUtil.waitForTwoSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        ConnectionNameField.sendKeys("Automation+IA");
+        titleDropdown.click();
+        TestUtil.waitForOneSeconds();
+        mrOptionInTitleDropdown.click();
+        firstName.sendKeys("Aditya");
+        lastName.sendKeys("Raghuwanshi+Automation");
+        contactNumber.sendKeys("987654321");
+        contactEmail.sendKeys("test+automation@saltoris.com");
+        electricBillNumber.sendKeys("123456");
+        houseNumber2.sendKeys("23, Mercer Street");
+        plotNumber.sendKeys("30");
+        TestUtil.waitForTwoSeconds();
+        pincodeDropdown2.click();
+        TestUtil.waitForOneSeconds();
+        pincodeOption.click();
+        layout.sendKeys("abc");
+        TestUtil.waitForTwoSeconds();
+        area.sendKeys("xyz");
+        TestUtil.waitForTwoSeconds();
+        sameAddresschk.isEnabled();
+        sameAddresschk.click();
+        TestUtil.waitForOneSeconds();
+        zoneDropdown.click();
+        TestUtil.waitForOneSeconds();
+        zoneOption.click();
+        nextButton.click();
+
+        TestUtil.waitForFiveSeconds();
+        taxReceiptInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        registrySaleDeedInput2.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        gustamaLicence.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        buildingPlan.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+
+        photoInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        // photoIdInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        electricityBill.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        waterSupplyAgreement.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        consentCheckbox.click();
+        signatureUploadButton.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        previewButton.click();
+        TestUtil.waitForFiveSeconds();
+        new Actions(driver).moveToElement(submitButton).perform();
+        submitButton.click();
+        TestUtil.waitForFiveSeconds();
+        confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
+    }
+
+    public void Logout() throws InterruptedException {
         Thread.sleep(5000);
         logOutBtn.click();
         Thread.sleep(3000);
+        driver.quit();
         //  return new StorePage();
     }
+
 
 
     public void approveConnection(String approver) throws InterruptedException {
         if(approver.equalsIgnoreCase("cso")) {
             connectionsLeftNav.click();
-            TestUtil.waitForFiveSeconds();
+            //  TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
-            TestUtil.waitForFiveSeconds();
+            //  TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
             TestUtil.waitForFiveSeconds();
@@ -413,7 +732,7 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
-            TestUtil.waitForTwoSeconds();
+            //  TestUtil.waitForTwoSeconds();
             try {
                 new Actions(driver).moveToElement(nextButton).perform();
                 nextButton.click();
@@ -441,11 +760,13 @@ public class HomePage extends TestBase {
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         } else if(approver.equalsIgnoreCase("tl")) {
+            TestUtil.waitForFiveSeconds();
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
-            TestUtil.waitForTwoSeconds();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
             meterReader01assign.click();
             TestUtil.waitForFiveSeconds();
             TestUtil.waitForFiveSeconds();
@@ -453,7 +774,46 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
-        } else if(approver.equalsIgnoreCase("mr")) {
+        }
+        else if(approver.equalsIgnoreCase("TLFORCOMMERCIAL")) {
+            TestUtil.waitForFiveSeconds();
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+          proceedBtn.click();
+            TestUtil.waitForFiveSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
+
+        else if(approver.equalsIgnoreCase("TLFORINSTITUTIONAL")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            totalFamilyMembers.sendKeys("4");
+            nearbyContractAccountNumber.sendKeys("12345667");
+            anyOtherConnectionFound.click();
+            alternateWaterSources.click();
+            TestUtil.waitForTwoSeconds();
+            mruId.click();
+            TestUtil.waitForTwoSeconds();
+            optionInMruId.click();
+            siteImageInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            proceedBtn.click();
+            TestUtil.waitForFiveSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
+            else if(approver.equalsIgnoreCase("mr")) {
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
@@ -466,7 +826,7 @@ public class HomePage extends TestBase {
             new Actions(driver).moveToElement(submitButton).perform();
             TestUtil.waitForTwoSeconds();
             mruId.click();
-            TestUtil.waitForOneSeconds();
+            TestUtil.waitForTwoSeconds();
             optionInMruId.click();
             siteImageInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
             TestUtil.waitForFiveSeconds();
@@ -531,7 +891,7 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
-            new Actions(driver).moveToElement(materialOfMainPipeline).perform();
+            //new Actions(driver).moveToElement(materialOfMainPipeline).perform();
             materialOfMainPipeline.click();
             TestUtil.waitForOneSeconds();
             optionMaterialOfMainPipeline.click();
@@ -554,10 +914,13 @@ public class HomePage extends TestBase {
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
+            TestUtil.waitForFiveSeconds();
             nextButton.click();
             TestUtil.waitForTwoSeconds();
+            TestUtil.waitForFiveSeconds();
             nextButton.click();
             new Actions(driver).moveToElement(nextButton).perform();
+            TestUtil.waitForFiveSeconds();
             nextButton.click();
             try {
                 new Actions(driver).moveToElement(nextButton).perform();
@@ -585,7 +948,7 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
-            TestUtil.waitForTwoSeconds();
+            TestUtil.waitForFiveSeconds();
             nextButton.click();
             new Actions(driver).moveToElement(nextButton).perform();
             nextButton.click();
@@ -604,7 +967,30 @@ public class HomePage extends TestBase {
             TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
-        } else if(approver.equalsIgnoreCase("aditya")) {
+        } else if(approver.equalsIgnoreCase("EE")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            proceedBtn.click();
+            TestUtil.waitForFiveSeconds();
+            proceedBtn.click();
+            TestUtil.waitForTwoSeconds();
+            proceedBtn.click();
+            TestUtil.waitForTwoSeconds();
+            proceedBtn.click();
+            TestUtil.waitForTwoSeconds();
+            proceedBtn.click();
+            TestUtil.waitForTwoSeconds();
+            approveButton.click();
+            TestUtil.waitForTwoSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForTwoSeconds();
+        }
+
+            else if(approver.equalsIgnoreCase("aditya")) {
             connectionsDropdown.click();
             TestUtil.waitForTwoSeconds();
             newConnectionOptionInDropdown.click();
@@ -675,6 +1061,7 @@ public class HomePage extends TestBase {
             TestUtil.waitForOneSeconds();
             relationshipWithCustomerDropdownOption.click();
             contractorName.sendKeys("aadi");
+            TestUtil.waitForTwoSeconds();
             hscForm.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
             TestUtil.waitForFiveSeconds();
             TestUtil.waitForTwoSeconds();
@@ -692,5 +1079,7 @@ public class HomePage extends TestBase {
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         }
+
+
     }
 }

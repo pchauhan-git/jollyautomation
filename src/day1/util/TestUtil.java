@@ -5,6 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
+import static day1.base.TestBase.driver;
+
 public class TestUtil {
 
   public static long PAGE_LOAD_TIMEOUT=30;
@@ -12,9 +16,10 @@ public class TestUtil {
 
    public static long EXTERNAL_WAIT = 40;
 
-   public static void waitUntilClickable(WebDriver driver, WebElement ele) {
-       WebDriverWait wait = new WebDriverWait(driver, EXTERNAL_WAIT);
-       wait.until(ExpectedConditions.elementToBeClickable(ele));
+   public static void waitUntilClickable() throws InterruptedException {
+//       WebDriverWait wait = new WebDriverWait(driver, EXTERNAL_WAIT);
+//       wait.until(ExpectedConditions.elementToBeClickable(ele));
+       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
    }
 
    public static void waitUntilElementNotPresent(WebDriver driver, WebElement ele) {
