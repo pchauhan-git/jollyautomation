@@ -22,6 +22,11 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//input[@value='SLUM']")
     WebElement slumBtn;
 
+    @FindBy(xpath="//div[@class='next-remark-row']//div[2]")
+    WebElement holdBtn;
+
+
+
 
     @FindBy(xpath = "//div[text()='Logout']")
     WebElement logOutBtn;
@@ -136,7 +141,19 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[5]//div[2]//div[4]//div[1]//div[2]//div[1]//span[2]")
     WebElement pincodeDropdown2;
 
+    @FindBy(xpath="//div[text()='Select Reason For Hold']/following-sibling::div//input")
+    WebElement holdDropdown;
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='Hold']")
+    WebElement holdOption;
 
+    @FindBy(xpath="//div[text()='Select Sub Reason For Hold']/following-sibling::div//input")
+    WebElement holdsubReason;
+
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='Delegate Show Site']")
+    WebElement holdsubreasonOption;
+
+    @FindBy(xpath="//textarea[@placeholder='Enter Remarks']")
+    WebElement remarksHold;
 
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='440021']")
     WebElement pincodeOption;
@@ -759,7 +776,61 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
-        } else if(approver.equalsIgnoreCase("tl")) {
+        }
+        if(approver.equalsIgnoreCase("cso-hold")) {
+            connectionsLeftNav.click();
+            //  TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            //  TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
+            nextButton.click();
+            //  TestUtil.waitForTwoSeconds();
+            try {
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+                new Actions(driver).moveToElement(nextButton).perform();
+                nextButton.click();
+                TestUtil.waitForFiveSeconds();
+                emailCheckbox.click();
+                smsCheckbox.click();
+                physicalBillCheckbox.click();
+            } catch(Exception e) {
+
+            }
+            holdBtn.click();
+            TestUtil.waitForFiveSeconds();
+            holdDropdown.click();
+            TestUtil.waitForTwoSeconds();
+            holdOption.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubReason.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubreasonOption.click();
+            TestUtil.waitForTwoSeconds();
+            remarksHold.sendKeys("Test hold");
+            TestUtil.waitForTwoSeconds();
+            previewButton.click();
+            TestUtil.waitForTwoSeconds();
+            new Actions(driver).moveToElement(submitButton).perform();
+            submitButton.click();
+            TestUtil.waitForTwoSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
+        else if(approver.equalsIgnoreCase("tl")) {
             TestUtil.waitForFiveSeconds();
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
@@ -959,6 +1030,41 @@ public class HomePage extends TestBase {
             new Actions(driver).moveToElement(previewButton).perform();
             previewButton.click();
             TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(approveButton).perform();
+            approveButton.click();
+            TestUtil.waitForFiveSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
+        else if(approver.equalsIgnoreCase("dl-hold")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            new Actions(driver).moveToElement(nextButton).perform();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            holdBtn.click();
+            TestUtil.waitForFiveSeconds();
+            holdDropdown.click();
+            TestUtil.waitForTwoSeconds();
+            holdOption.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubReason.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubreasonOption.click();
+            TestUtil.waitForTwoSeconds();
+            remarksHold.sendKeys("Hold by DL");
+            TestUtil.waitForTwoSeconds();
+            previewButton.click();
+                       TestUtil.waitForFiveSeconds();
             new Actions(driver).moveToElement(approveButton).perform();
             approveButton.click();
             TestUtil.waitForFiveSeconds();
