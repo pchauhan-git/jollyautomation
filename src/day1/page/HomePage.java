@@ -100,6 +100,8 @@ public class HomePage extends TestBase {
     WebElement addressProofcertificate;
 
 
+    @FindBy(xpath="//button/span[text()='Update']")
+    WebElement updateButton;
 
 
     @FindBy(xpath="//button/span[text()='Next']")
@@ -143,13 +145,17 @@ public class HomePage extends TestBase {
 
     @FindBy(xpath="//div[text()='Select Reason For Hold']/following-sibling::div//input")
     WebElement holdDropdown;
-    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='Hold']")
+    @FindBy(xpath="//div[@class='rc-virtual-list-holder-inner']//div//div")
     WebElement holdOption;
+
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[normalize-space(text())='Commercial activity on site-Consent Letter Not Uploaded']")
+    WebElement holdSubOptionSpm;
+
 
     @FindBy(xpath="//div[text()='Select Sub Reason For Hold']/following-sibling::div//input")
     WebElement holdsubReason;
 
-    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='Delegate Show Site']")
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[normalize-space(text())='Delegate Show Site']")
     WebElement holdsubreasonOption;
 
     @FindBy(xpath="//textarea[@placeholder='Enter Remarks']")
@@ -207,7 +213,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//a[text()='Connections']")
     WebElement connectionsLeftNav;
 
-    @FindBy(xpath="//tbody/tr[1]/td[8]/div[1]/div[1]/span[1]//*[name()='svg']")
+    @FindBy(xpath="//div[@class='table-actions']//div//span")
     WebElement topListConnectionEdit;
 
     @FindBy(xpath="//div[@class='width-25']//div[2]//div[2]//div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M16.5637 7')]")
@@ -815,7 +821,8 @@ public class HomePage extends TestBase {
             TestUtil.waitForTwoSeconds();
             holdsubReason.click();
             TestUtil.waitForTwoSeconds();
-            holdsubreasonOption.click();
+
+            holdSubOptionSpm.click();
             TestUtil.waitForTwoSeconds();
             remarksHold.sendKeys("Test hold");
             TestUtil.waitForTwoSeconds();
@@ -842,6 +849,24 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
+        else if(approver.equalsIgnoreCase("consumer-after-hold")) {
+            TestUtil.waitForFiveSeconds();
+            connectionsDropdown.click();
+            newConnectionOptionInDropdown.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            updateButton.click();
             TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
