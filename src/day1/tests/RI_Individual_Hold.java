@@ -35,6 +35,17 @@ public class RI_Individual_Hold {
     driver.get(TestBase.prop.getProperty("url"));
     homePage = loginPg.login("swengp@gmail.com","Saltoris@123");
     homePage.approveConnection("consumer-after-hold");
+    driver.get(TestBase.prop.getProperty("admin_url"));
+    homePage = loginPg.login("cso01@veolia.com","Cso@123");
+    homePage.approveConnection("CSO");
+    homePage = loginPg.login("tl01@veolia.com","Tl@123");
+    homePage.approveConnection("TL-hold");
+    homePage = loginPg.login("spm01@veolia.com","Spm@123");
+    homePage.approveConnection("spm-hold2");
+    homePage = loginPg.login("dl01@veolia.com","Dl@123");
+    homePage.approveConnection("DL");
+
+
     homePage = loginPg.login("tl01@veolia.com","Tl@123");
         homePage.approveConnection("TL");
         homePage = loginPg.login("mr01c@veolia.com","Mr@123");
