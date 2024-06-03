@@ -151,6 +151,9 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[normalize-space(text())='Commercial activity on site-Consent Letter Not Uploaded']")
     WebElement holdSubOptionSpm;
 
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[normalize-space(text())='Arrears on existing connection']")
+    WebElement holdSubOptionTL;
+
 
     @FindBy(xpath="//div[text()='Select Sub Reason For Hold']/following-sibling::div//input")
     WebElement holdsubReason;
@@ -160,6 +163,9 @@ public class HomePage extends TestBase {
 
     @FindBy(xpath="//textarea[@placeholder='Enter Remarks']")
     WebElement remarksHold;
+
+    @FindBy(xpath="//textarea[@placeholder='Enter remarks']")
+    WebElement remarksHold2;
 
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='440021']")
     WebElement pincodeOption;
@@ -871,6 +877,34 @@ public class HomePage extends TestBase {
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         }
+        else if(approver.equalsIgnoreCase("TL-hold")) {
+            TestUtil.waitForFiveSeconds();
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForFiveSeconds();
+            holdBtn.click();
+            TestUtil.waitForTwoSeconds();
+            holdDropdown.click();
+            TestUtil.waitForTwoSeconds();
+            holdOption.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubReason.click();
+            TestUtil.waitForTwoSeconds();
+
+            holdSubOptionTL.click();
+            TestUtil.waitForTwoSeconds();
+            remarksHold2.sendKeys("Test hold");
+            TestUtil.waitForFiveSeconds();
+            proceedBtn.click();
+            TestUtil.waitForTwoSeconds();
+
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
         else if(approver.equalsIgnoreCase("TLFORCOMMERCIAL")) {
             TestUtil.waitForFiveSeconds();
             connectionsLeftNav.click();
@@ -885,6 +919,29 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
         }
 
+        else if(approver.equalsIgnoreCase("spm-hold2")) {
+            TestUtil.waitForFiveSeconds();
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            holdBtn.click();
+            TestUtil.waitForTwoSeconds();
+            holdSubOptionSpm.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubReason.click();
+            TestUtil.waitForTwoSeconds();
+            holdSubOptionSpm.click();
+            TestUtil.waitForTwoSeconds();
+            remarksHold.sendKeys("SPM HOLD 2");
+            TestUtil.waitForTwoSeconds();
+            proceedBtn.click();
+            TestUtil.waitForFiveSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
         else if(approver.equalsIgnoreCase("TLFORINSTITUTIONAL")) {
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
