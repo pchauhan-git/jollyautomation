@@ -44,18 +44,27 @@ public class RI_Individual_Hold {
     homePage.approveConnection("spm-hold2");
     homePage = loginPg.login("dl01@veolia.com","Dl@123");
     homePage.approveConnection("DL");
-
-
     homePage = loginPg.login("tl01@veolia.com","Tl@123");
         homePage.approveConnection("TL");
+
         homePage = loginPg.login("mr01c@veolia.com","Mr@123");
-        homePage.approveConnection("MR");
+        homePage.approveConnection("mr-hold");
+
         homePage = loginPg.login("tl01@veolia.com","Tl@123");
         homePage.approveConnection("TL01");
         homePage = loginPg.login("spm01@veolia.com","Spm@123");
-        homePage.approveConnection("SPM");
+        homePage.approveConnection("spm APPROVE 2");
+    homePage = loginPg.login("tl01@veolia.com","Tl@123");
+        homePage.approveConnection("TL");
+    homePage = loginPg.login("mr01c@veolia.com","Mr@123");
+        homePage.approveConnection("mr");
+    homePage = loginPg.login("tl01@veolia.com","Tl@123");
+    homePage.approveConnection("TL01");
+    homePage = loginPg.login("spm01@veolia.com","Spm@123");
+        homePage.approveConnection("spm");
+
         homePage = loginPg.login("ne01@veolia.com","Ne@123");
-        homePage.approveConnection("NE");
+        homePage.approveConnection("NE01");
         homePage = loginPg.login("zm01@veolia.com","Zm@123");
         homePage.approveConnection("ZM");
         homePage = loginPg.login("cso01@veolia.com","Cso@123");
