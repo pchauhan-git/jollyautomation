@@ -161,6 +161,9 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[normalize-space(text())='Delegate Show Site']")
     WebElement holdsubreasonOption;
 
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[normalize-space(text())='No Residence found at site']")
+    WebElement holdsubreasonOptionMR;
+
     @FindBy(xpath="//textarea[@placeholder='Enter Remarks']")
     WebElement remarksHold;
 
@@ -222,7 +225,7 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[@class='table-actions']//div//span")
     WebElement topListConnectionEdit;
 
-    @FindBy(xpath="//div[@class='width-25']//div[2]//div[2]//div[1]//*[name()='svg']//*[name()='path' and contains(@d,'M16.5637 7')]")
+    @FindBy(xpath="//div[@class='icon-container']//div")
     WebElement meterReader01assign;
 
     @FindBy(xpath="//input[@name='totalFamilyMembers/dwellingUnits']")
@@ -992,7 +995,59 @@ public class HomePage extends TestBase {
             TestUtil.waitForTwoSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
-        } else if(approver.equalsIgnoreCase("tl01")) {
+        }
+        else if(approver.equalsIgnoreCase("TL03")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+
+
+            submitButton.click();
+            TestUtil.waitForTwoSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        } else if(approver.equalsIgnoreCase("mr-hold")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            totalFamilyMembers.sendKeys("4");
+            nearbyContractAccountNumber.sendKeys("12345667");
+            anyOtherConnectionFound.click();
+            alternateWaterSources.click();
+            TestUtil.waitForTwoSeconds();
+            new Actions(driver).moveToElement(submitButton).perform();
+            TestUtil.waitForTwoSeconds();
+            mruId.click();
+            TestUtil.waitForTwoSeconds();
+            optionInMruId.click();
+            siteImageInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+            TestUtil.waitForFiveSeconds();
+           holdBtn.click();
+            TestUtil.waitForTwoSeconds();
+           holdDropdown.click();
+            TestUtil.waitForTwoSeconds();
+            holdOption.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubReason.click();
+            TestUtil.waitForTwoSeconds();
+            holdsubreasonOptionMR.click();
+            TestUtil.waitForTwoSeconds();
+            remarksHold.sendKeys("hold MR");
+            TestUtil.waitForTwoSeconds();
+            submitButton.click();
+            TestUtil.waitForTwoSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+            }
+            else if(approver.equalsIgnoreCase("tl01")) {
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
@@ -1039,23 +1094,19 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
-        } else if(approver.equalsIgnoreCase("ne")) {
+        }
+        else if(approver.equalsIgnoreCase("spm APPROVE 2")) {
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
-            //new Actions(driver).moveToElement(materialOfMainPipeline).perform();
-            materialOfMainPipeline.click();
-            TestUtil.waitForOneSeconds();
-            optionMaterialOfMainPipeline.click();
-            newHoleOptionNo.click();
-            depthOfMdpePipe.sendKeys("3");
-            lengthOfMdpePipe.sendKeys("5");
-            waterFlowQuantity.sendKeys("20");
-            durationOfWaterSupplyInHours.sendKeys("2");
-            new Actions(driver).moveToElement(submitButton).perform();
-            submitButton.click();
+//            new Actions(driver).moveToElement(nextButton).perform();
+            nextButton.click();
+            TestUtil.waitForTwoSeconds();
+                      previewButton.click();
             TestUtil.waitForFiveSeconds();
+            submitButton.click();
+            TestUtil.waitForTwoSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
             TestUtil.waitForTwoSeconds();
