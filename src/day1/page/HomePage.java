@@ -25,6 +25,8 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[@class='next-remark-row']//div[2]")
     WebElement holdBtn;
 
+    @FindBy(xpath="(//span[normalize-space()='Mark for Hold'])[1]")
+    WebElement holdBtn2;
 
 
 
@@ -73,12 +75,23 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//span[text()='Preview']")
     WebElement previewButton;
 
+    @FindBy(xpath="//input[@value='SLUM']")
+    WebElement rccRadioBtn;
+
+
 
     @FindBy(xpath="//div[@class='ant-modal-content']//div[2]//button[2]")
     WebElement newConnectionInstructionOKButton;
 
     @FindBy(xpath="//input[@value='residential']")
     WebElement residentialRadioButton;
+
+    @FindBy(xpath="//input[@value='C1B']")
+    WebElement c1bRadioButton;
+
+    @FindBy(xpath="//input[@value='C2']")
+    WebElement c2RadioButton;
+
 
     @FindBy(xpath="//input[@value='R1']")
     WebElement r1RadioButton;
@@ -254,8 +267,13 @@ public class HomePage extends TestBase {
     @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='CI']")
     WebElement optionMaterialOfMainPipeline;
 
-    @FindBy(xpath="//div[text()='New Hole']/following-sibling::div//input[@value='No']")
+    @FindBy(xpath="//div[text()='New Hole']/following-sibling::div//input[@value='no']")
     WebElement newHoleOptionNo;
+    @FindBy(xpath="//div[@name='consumerGroup']")
+    WebElement consumerdropdown;
+
+    @FindBy(xpath="//div[@class='rc-virtual-list']//div[text()='NIT']")
+    WebElement consumerOption;
 
     @FindBy(xpath="//input[@name='depthOfMdpePipe']")
     WebElement depthOfMdpePipe;
@@ -288,6 +306,10 @@ public class HomePage extends TestBase {
     WebElement phonePayOption;
     @FindBy(xpath="//button/span[text()='Pay']")
     WebElement payButton;
+
+    @FindBy(xpath="(//span[contains(text(),'Pay')])[2]")
+    WebElement payButton2;
+
 
     @FindBy(xpath="//button/span[text()='Pay']")
     List<WebElement> payButtonList;
@@ -577,18 +599,15 @@ public class HomePage extends TestBase {
         TestUtil.waitForFiveSeconds();
         applyForNewConnectionButton.click();
         TestUtil.waitForFiveSeconds();
-      //  newConnectionInstructionOKButton.click();
-//        TestUtil.waitForTwoSeconds();
+        newConnectionInstructionOKButton.click();
+        TestUtil.waitForTwoSeconds();
         connectionType.click();
         TestUtil.waitForTwoSeconds();
 
       //  TestUtil.waitForTwoSeconds();
         CommercialBtn.click();
         TestUtil.waitForTwoSeconds();
-    //    yesBtn.click();
-//        TestUtil.waitForTwoSeconds();
-         radioBtn1.click();
-        TestUtil.waitForTwoSeconds();
+        radioBtn1.click();
         TestUtil.waitForTwoSeconds();
         nextButton.click();
         TestUtil.waitForFiveSeconds();
@@ -652,7 +671,244 @@ public class HomePage extends TestBase {
         TestUtil.waitForFiveSeconds();
         logOutBtn.click();
     }
+    public void createNewConnectionR1SlumRCC() throws InterruptedException {
+        connectionsDropdown.click();
+        newConnectionOptionInDropdown.click();
+        // TestUtil.waitUntilClickable();
+        TestUtil.waitForFiveSeconds();
+        applyForNewConnectionButton.click();
+        TestUtil.waitForFiveSeconds();
+        newConnectionInstructionOKButton.click();
+        TestUtil.waitForTwoSeconds();
+        connectionType.click();
+        TestUtil.waitForTwoSeconds();
 
+        //  TestUtil.waitForTwoSeconds();
+        residentialRadioButton.click();
+        TestUtil.waitForTwoSeconds();
+        rccRadioBtn.click();
+        TestUtil.waitForTwoSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        ConnectionNameField.sendKeys("Aditya");
+        titleDropdown.click();
+        TestUtil.waitForOneSeconds();
+        mrOptionInTitleDropdown.click();
+        firstName.sendKeys("Aditya");
+        lastName.sendKeys("Raghuwanshi+Automation");
+        contactNumber.sendKeys("987654321");
+        contactEmail.sendKeys("test+automation@saltoris.com");
+        electricBillNumber.sendKeys("123456");
+        houseNumber2.sendKeys("23, Mercer Street");
+        plotNumber.sendKeys("30");
+        TestUtil.waitForTwoSeconds();
+        pincodeDropdown2.click();
+        TestUtil.waitForOneSeconds();
+        pincodeOption.click();
+        layout.sendKeys("abc");
+        area.sendKeys("xyz");
+        TestUtil.waitForOneSeconds();
+        sameAddresschk.click();
+        TestUtil.waitForOneSeconds();
+        zoneDropdown.click();
+        TestUtil.waitForOneSeconds();
+        zoneOption.click();
+        nextButton.click();
+
+        TestUtil.waitForFiveSeconds();
+        taxReceiptInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        registrySaleDeedInput2.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        gustamaLicence.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        buildingPlan.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+
+        photoInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        // photoIdInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        electricityBill.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        waterSupplyAgreement.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        consentCheckbox.click();
+        signatureUploadButton.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        previewButton.click();
+        TestUtil.waitForFiveSeconds();
+        new Actions(driver).moveToElement(submitButton).perform();
+        submitButton.click();
+        TestUtil.waitForFiveSeconds();
+        confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
+    }
+    public void createNewConnectionC1B() throws InterruptedException {
+        connectionsDropdown.click();
+        newConnectionOptionInDropdown.click();
+        // TestUtil.waitUntilClickable();
+        TestUtil.waitForFiveSeconds();
+        applyForNewConnectionButton.click();
+        TestUtil.waitForFiveSeconds();
+        newConnectionInstructionOKButton.click();
+        TestUtil.waitForTwoSeconds();
+        connectionType.click();
+        TestUtil.waitForTwoSeconds();
+
+        //  TestUtil.waitForTwoSeconds();
+        CommercialBtn.click();
+        TestUtil.waitForTwoSeconds();
+        c1bRadioButton.click();
+        TestUtil.waitForTwoSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        ConnectionNameField.sendKeys("Aditya");
+        titleDropdown.click();
+        TestUtil.waitForOneSeconds();
+        mrOptionInTitleDropdown.click();
+        firstName.sendKeys("Aditya");
+        lastName.sendKeys("Raghuwanshi+Automation");
+        contactNumber.sendKeys("987654321");
+        contactEmail.sendKeys("test+automation@saltoris.com");
+        electricBillNumber.sendKeys("123456");
+        houseNumber2.sendKeys("23, Mercer Street");
+        plotNumber.sendKeys("30");
+        TestUtil.waitForTwoSeconds();
+        pincodeDropdown2.click();
+        TestUtil.waitForOneSeconds();
+        pincodeOption.click();
+        layout.sendKeys("abc");
+        area.sendKeys("xyz");
+        TestUtil.waitForOneSeconds();
+        sameAddresschk.click();
+        TestUtil.waitForOneSeconds();
+        zoneDropdown.click();
+        TestUtil.waitForOneSeconds();
+        zoneOption.click();
+        nextButton.click();
+
+        TestUtil.waitForFiveSeconds();
+        taxReceiptInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        registrySaleDeedInput2.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        gustamaLicence.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        buildingPlan.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+
+        photoInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        // photoIdInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        electricityBill.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        waterSupplyAgreement.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        consentCheckbox.click();
+        signatureUploadButton.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        previewButton.click();
+        TestUtil.waitForFiveSeconds();
+        new Actions(driver).moveToElement(submitButton).perform();
+        submitButton.click();
+        TestUtil.waitForFiveSeconds();
+        confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
+    }
+
+    public void createNewConnectionC2() throws InterruptedException {
+        connectionsDropdown.click();
+        newConnectionOptionInDropdown.click();
+        // TestUtil.waitUntilClickable();
+        TestUtil.waitForFiveSeconds();
+        applyForNewConnectionButton.click();
+        TestUtil.waitForFiveSeconds();
+        newConnectionInstructionOKButton.click();
+        TestUtil.waitForTwoSeconds();
+        connectionType.click();
+        TestUtil.waitForTwoSeconds();
+
+        //  TestUtil.waitForTwoSeconds();
+        CommercialBtn.click();
+        TestUtil.waitForTwoSeconds();
+        c2RadioButton.click();
+        TestUtil.waitForTwoSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        ConnectionNameField.sendKeys("Aditya");
+        titleDropdown.click();
+        TestUtil.waitForOneSeconds();
+        mrOptionInTitleDropdown.click();
+        firstName.sendKeys("Aditya");
+        lastName.sendKeys("Raghuwanshi+Automation");
+        contactNumber.sendKeys("987654321");
+        contactEmail.sendKeys("test+automation@saltoris.com");
+        electricBillNumber.sendKeys("123456");
+        houseNumber2.sendKeys("23, Mercer Street");
+        plotNumber.sendKeys("30");
+        TestUtil.waitForTwoSeconds();
+        pincodeDropdown2.click();
+        TestUtil.waitForOneSeconds();
+        pincodeOption.click();
+        layout.sendKeys("abc");
+        area.sendKeys("xyz");
+        TestUtil.waitForOneSeconds();
+        sameAddresschk.click();
+        TestUtil.waitForOneSeconds();
+        zoneDropdown.click();
+        TestUtil.waitForOneSeconds();
+        zoneOption.click();
+        nextButton.click();
+
+        TestUtil.waitForFiveSeconds();
+        taxReceiptInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        registrySaleDeedInput2.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        gustamaLicence.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        buildingPlan.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+
+        photoInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        // photoIdInput.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        electricityBill.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        waterSupplyAgreement.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        nextButton.click();
+        TestUtil.waitForFiveSeconds();
+        consentCheckbox.click();
+        signatureUploadButton.sendKeys(System.getProperty("user.dir")+"/SampleFile.png");
+        TestUtil.waitForFiveSeconds();
+        previewButton.click();
+        TestUtil.waitForFiveSeconds();
+        new Actions(driver).moveToElement(submitButton).perform();
+        submitButton.click();
+        TestUtil.waitForFiveSeconds();
+        confirmationYesButton.click();
+        TestUtil.waitForFiveSeconds();
+        TestUtil.waitForFiveSeconds();
+        logOutBtn.click();
+    }
 
     public void createNewConnectionIA() throws InterruptedException {
         connectionsDropdown.click();
@@ -928,17 +1184,23 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();
             topListConnectionEdit.click();
             TestUtil.waitForFiveSeconds();
-            holdBtn.click();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            holdBtn2.click();
             TestUtil.waitForTwoSeconds();
-            holdSubOptionSpm.click();
+            holdDropdown.click();
+            TestUtil.waitForTwoSeconds();
+            holdOption.click();
             TestUtil.waitForTwoSeconds();
             holdsubReason.click();
-            TestUtil.waitForTwoSeconds();
             holdSubOptionSpm.click();
             TestUtil.waitForTwoSeconds();
-            remarksHold.sendKeys("SPM HOLD 2");
+            TestUtil.waitForTwoSeconds();
+            remarksHold2.sendKeys("SPM HOLD 2");
             TestUtil.waitForTwoSeconds();
             proceedBtn.click();
+            TestUtil.waitForTwoSeconds();
+            submitButton.click();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
@@ -1172,6 +1434,23 @@ public class HomePage extends TestBase {
             logOutBtn.click();
             TestUtil.waitForFiveSeconds();
         }
+        else if(approver.equalsIgnoreCase("DL01")) {
+            TestUtil.waitForFiveSeconds();
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+            nextButton.click();
+            TestUtil.waitForFiveSeconds();
+            previewButton.click();
+            TestUtil.waitForFiveSeconds();
+            approveButton.click();
+            TestUtil.waitForTwoSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
         else if(approver.equalsIgnoreCase("dl-hold")) {
             connectionsLeftNav.click();
             TestUtil.waitForFiveSeconds();
@@ -1311,6 +1590,38 @@ public class HomePage extends TestBase {
             TestUtil.waitForFiveSeconds();;
             TestUtil.waitForTwoSeconds();
             submitButton.click();
+            TestUtil.waitForFiveSeconds();
+            confirmationYesButton.click();
+            TestUtil.waitForFiveSeconds();
+            TestUtil.waitForTwoSeconds();
+            logOutBtn.click();
+            TestUtil.waitForFiveSeconds();
+        }
+        else if(approver.equalsIgnoreCase("ne")) {
+            connectionsLeftNav.click();
+            TestUtil.waitForFiveSeconds();
+            topListConnectionEdit.click();
+            TestUtil.waitForFiveSeconds();
+          materialOfMainPipeline.click();
+            TestUtil.waitForFiveSeconds();
+          optionMaterialOfMainPipeline.click();
+            TestUtil.waitForTwoSeconds();
+            TestUtil.waitForTwoSeconds();
+            newHoleOptionNo.click();
+            TestUtil.waitForTwoSeconds();
+            depthOfMdpePipe.sendKeys("1");
+            TestUtil.waitForTwoSeconds();
+            lengthOfMdpePipe.sendKeys("21");
+            TestUtil.waitForTwoSeconds();
+            consumerdropdown.click();
+            TestUtil.waitForTwoSeconds();
+            consumerOption.click();
+            TestUtil.waitForTwoSeconds();
+            waterFlowQuantity.sendKeys("2");
+            TestUtil.waitForTwoSeconds();
+            durationOfWaterSupplyInHours.sendKeys("2");
+            TestUtil.waitForTwoSeconds();
+            proceedBtn.click();
             TestUtil.waitForFiveSeconds();
             confirmationYesButton.click();
             TestUtil.waitForFiveSeconds();
